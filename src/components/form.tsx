@@ -1,42 +1,31 @@
 import { useState } from "react";
 import Input from "./input";
 
-const Form = ({ handleSubmit }) => {
-  const [inputs, setInputs] = useState([{ key: 0 }]);
+const Form = ({ category }: { category: string }) => {
+  const [inputs, setInputs] = useState<{ key: number }[]>([]);
 
   const addInput = () => {
     setInputs([...inputs, { key: inputs.length }]);
   };
 
-  const removeInput = (index) => {
+  const removeInput = (index: number) => {
     const newInputs = inputs.filter((input) => input.key !== index);
     setInputs(newInputs);
   };
 
-  const inputView = inputs.map((input, index) => {
+  const inputView = inputs.map((input) => {
     return (
-      <Input key={input.key} remove={() => removeInput(input.key)} />
+      <Input key={input.key} remove={() => removeInput(input.key)} category={category} />
     );
   });
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const allInputs = e.target.todo;
-  //   const values = [];
-  //   for (let i = 0; i < allInputs.length; i++) {
-  //     values.push(allInputs[i].value);
-  //   }
-  //   values.join(' ,');
-  //   const response = await chatGpt(values);
-  // }
-
   return (
     <div>
-      <button type="button" className="addInputBtn" onClick={addInput}>+</button>
-      <form className='inputForm' onSubmit={handleSubmit}>
-        {inputView}
-        <p>Plan my day <button type="submit">&#8594;</button></p>
-      </form>
+      <div className="formHeader">
+        <button type="button" className="addInputBtn" onClick={addInput}>+</button>
+        <h2>{category}</h2>
+      </div>
+      {inputView}
     </div>
   );
 };
