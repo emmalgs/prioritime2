@@ -1,9 +1,12 @@
 import { useState } from "react";
 
-const Input = () => {
+const Input = ({ remove }) => {
   const [value, setValue] = useState('');
   return (
-    <input value={value} onChange={(e) => setValue(e.target.value)} />
+    <div>
+      <button className="removeInputBtn" onClick={remove}>-</button>
+      <input className="dayInput" name='todo' value={value} onChange={(e) => setValue(e.target.value)} />    
+    </div>
   );
 }
 
