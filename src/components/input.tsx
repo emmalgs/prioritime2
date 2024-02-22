@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-const Input = ({ remove, category }) => {
+interface InputProps {
+  remove: () => void;
+  category: string;
+}
+
+const Input = ({ remove, category }: InputProps) => {
   const [value, setValue] = useState('');
   return (
     <div>
