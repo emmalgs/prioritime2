@@ -27,7 +27,6 @@ body {
 .dayMain {
   display: flex;
   flex-direction: column;
-  width: 30%;
   margin-right: auto;
   padding: 2rem;
   border-right: 2px solid var(--black);
@@ -35,14 +34,24 @@ body {
 }
 
 .dayHeader {
-  font-size: 64px;
+  font-size: 42px;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.formHeader h2 {
+  font-size: 24px;
 }
 
 .dayOutput {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  flex: 2;
+  flex: 1;
 }
 
 .addInputBtn {
