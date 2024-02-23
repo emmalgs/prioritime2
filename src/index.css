@@ -33,6 +33,11 @@ body {
   flex: 1;
 }
 
+.clock {
+  width: 100px;
+  height: 100px;
+}
+
 .dayHeader {
   font-size: 42px;
 }

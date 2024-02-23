@@ -1,5 +1,6 @@
 import Output from "./output";
 import { useState } from "react";
+import clock from "../assets/images/clock.gif"
 
 const DayOutput = ({ response }) => {
   const [values, setValues] = useState<any[]>([]);
@@ -38,6 +39,7 @@ const DayOutput = ({ response }) => {
 
   return (
     <div className="dayOutput">
+      <img src={clock} alt="mr time" className="clock"/>
       <h1>Your Day:</h1>
       {outputView}
     </div>
